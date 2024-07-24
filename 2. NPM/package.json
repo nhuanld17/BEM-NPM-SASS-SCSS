@@ -1,0 +1,15 @@
+{
+  "name": "2.-npm",
+  "version": "1.0.0",
+  "main": "npm.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@ant-design/cssinjs": "^1.21.0",
+    "json-server": "^1.0.0-beta.1"
+  }
+}
