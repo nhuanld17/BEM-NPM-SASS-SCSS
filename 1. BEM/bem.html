@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<!--
+    BEM là viết tắt của cụm Block-Element-Modifier. 
+    Là tiêu chuẩn quy ước đặt tên cho các tên lớp CSS.
+    BEM giúp việc lập trình FrondEnd dễ hiểu, dễ đọc hơn, dễ làm việc và dễ mở rộng cũng như 
+    bảo trì khi làm việc với CSS 
+    Quy ước đặt tên: block__element--modifier
+    -->
+	<!--
+    - Block: Là một khối độc lập của một nhóm, và cũng có thể dùng lại như một component
+    (một khối có thể tái sử dụng). Nó cần ngắn gọn, dễ hiểu, bao quát, không cụ thể để có
+    khả năng dùng lại cao nhất. Ví dụ như card, post,...
+    - Element: là một phần tử con bên tron block, và chỉ tồn tại bên trong block. Ví dụ: 
+    card__title, card__text hoặc là card__button,..
+    - Modifier: Dùng để quy định kích thước, màu sắc, hình dạng khác nhau của một block hay
+    element. Ví dụ: card__button--green, card__button--blue, card__button--large,...
+    -->
+
+	<button class="btn btn--primary">Primary</button>
+	<button class="btn btn--secondary">Secondary</button>
+	<button class="btn btn--success">Success</button>
+	<button class="btn btn--danger">Danger</button>
+	<button class="btn btn--warning">Warning</button>
+	<button class="btn btn--info">Info</button>
+	<button class="btn btn--light">Light</button>
+	<button class="btn btn--dark">Dark</button>
+	<button class="btn btn--link">Link</button>
+
+	<style>
+		.card__title {
+			font-weight: 700;
+			color: #000;
+			font-size: 20px;
+		}
+
+		.card__title--red {
+			color: red;
+		}
+	</style>
+
+	<div class="card" style="width: 18rem;">
+		<img src="..." class="card__image" alt="...">
+		<div class="card__body">
+			<h5 class="card__title card__title--red">Card title</h5>
+			<p class="card__text">Some quick example text to build on the card title and make up the bulk of the card's
+				content.</p>
+			<a href="#" class="btn btn-primary">Go somewhere</a>
+		</div>
+	</div>
+
+	<ul class="nav">
+		<li class="nav__item">
+			<a class="nav__link nav__link--active" href="#">Active</a>
+		</li>
+		<li class="nav__item">
+			<a class="nav__link" href="#">Link</a>
+		</li>
+		<li class="nav__item">
+			<a class="nav__link" href="#">Link</a>
+		</li>
+		<li class="nav__item">
+			<a class="nav__link nav__link--disabled" aria-disabled="true">Disabled</a>
+		</li>
+	</ul>
+
+</body>
+
+</html>
