@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+	<!-- 
+    SASS viết tắt của Syntactively Awesome Style Sheets.
+    Là ngôn ngữ kịch bản và bộ tiền xử lí CSS 
+    Biên dịch mã thành CSS để giúp viết CSS nhanh hơn, tái sử dụng được, tối ưu hơn 
+    SCSS(Sassy CSS) được giới thiệu trong phiên bản thứ 3 của SASS, nó bổ sung thêm dấu 
+    ngoặc{} và dấu chấm phẩy ;
+     -->
+
+	<!--
+    Cài đặt SASS/SCSS 
+    - Mở terminal và gõ lệnh: npm install -g sass để cài đặt sass 
+    - Tạo 2 folder là scss và css. Trong folder scss tạo file style.scss 
+    - Chạy lệnh: sass ./scss/style.scss ./css/style.css --watch để biên dịch file 
+    style.scss thành file style.css. Hoặc chạy lệnh sass --watch scss:css để biên dịch
+    tất cả file trong folder scss vào trong folder css.
+    - Nếu gặp lỗi cannot be loadded because running script is disable on this system thì
+    chạy lệnh sau trên power shell: Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope
+    CurrentUser. Sau đó chạy lại bước thứ 3.
+    -->
+
+	<!--
+    @extend: Kế thừa thuộc tính
+    - Được dùng trong trường hợp bạn muốn một selector sử dụng lại những thuộc tính của selector
+    khác.
+    - Giúp giảm trùng lặp code 
+    - Sử dụng trong trường hợp styles tĩnh
+    -->
+
+	<!-- <button class="button">Button Default</button> -->
+	<button class="button--red">Button Red</button>
+	<button class="button--green">Button Green</button>
+
+	<!--
+    - Placeholder Selectors được sử dụng để tạo ra các phần tử CSS có thể tái sử dụng mà 
+    không thực sự tạo ra CSS cho đến khi chúng được kế thừa (extended). Placeholders được 
+    xác định bằng cách sử dụng ký tự % và chỉ tạo ra CSS khi được @extend bởi các selectors khác.
+    -->
+
+	<!--
+    - Biến và khai báo biến
+    - Cú pháp: $name : value;
+    - Trong đó:
+        + $name : tên biến
+        + value : giá trị của biến
+    -->
+
+	<!--
+    - Nesting - cách viết phân cấp:
+    - Là cấu trúc viết gọn theo dạng phân cấp, giúp dễ dàng kiểm soát phần tử con 
+    thuộc phần tử cha nào 
+    -->
+
+	<ul class="nav">
+		<li class="nav__item">
+			<a class="nav__link nav__link--active" href="#">Active</a>
+		</li>
+		<li class="nav__item">
+			<a class="nav__link" href="#">Link</a>
+		</li>
+		<li class="nav__item">
+			<a class="nav__link" href="#">Link</a>
+		</li>
+		<li class="nav__item">
+			<a class="nav__link nav__link--disabled" href="#">Disabled</a>
+		</li>
+	</ul>
+
+  <ul class="pagination">
+    <li class="pagination__item pagination__item--disabled">
+      <a class="pagination__link">Previous</a>
+    </li>
+    <li class="pagination__item">
+			<a class="pagination__link" href="#">1</a>
+		</li>
+    <li class="pagination__item pagination__item--active" aria-current="page">
+      <a class="pagination__link" href="#">2</a>
+    </li>
+    <li class="pagination__item">
+			<a class="pagination__link" href="#">3</a>
+		</li>
+    <li class="pagination__item">
+      <a class="pagination__link" href="#">Next</a>
+    </li>
+  </ul>
+
+	<!--
+	@mixin & @include - Khai báo và kế thừa kết hợp đối số
+	- @mixin là một cách để nhóm các đoạn mã CSS lại với nhau và có thể tái sử dụng 
+	chúng ở nhiều nơi trong mã của bạn. 
+	- @include là một chỉ thị được sử dụng để bao gồm một mixin vào trong CSS.
+	- Cú pháp:
+		@mixin mixin_name(danh_sach_tham_so){
+			//Code
+		}
+		
+	- Dùng @include để gọi mixin
+	- Cú pháp: 
+		@include mixin_name;
+	-->
+
+	<ul class="nav">
+		<li class="nav__item">
+			<a class="nav__link nav__link--active" href="#">Active</a>
+		</li>
+		<li class="nav__item">
+			<a class="nav__link" href="#">Link</a>
+		</li>
+		<li class="nav__item">
+			<a class="nav__link" href="#">Link</a>
+		</li>
+		<li class="nav__item">
+			<a class="nav__link nav__link--disabled" href="#">Disabled</a>
+		</li>
+	</ul>
+
+	<!--
+	- Câu lệnh @if @else 
+	- Cú pháp:
+		@if($first_condition){
+			// Code
+		} @else if ($second_condition) {
+		 	// Code
+		} @else {
+		 	// Code
+		}
+	-->
+
+	<div class="box">
+		<div class="box__item box__item--one">
+			Child 1
+		</div>
+		<div class="box__item box__item--two">
+			Child 2
+		</div>
+		<div class="box__item box__item--three">
+			Child 3
+		</div>
+		<div class="box__item box__item--four opacity-2">
+			Child 4
+		</div>
+	</div>
+
+	<!--
+	- Vòng lặp for
+	- Cú pháp:
+		@for $i from $begin_value through $end_value {
+			// Code 
+			// Để lấy giá trị của $i thì ra sử dụng cú pháp #{$i}
+		}  
+	-->
+
+</body>
+
+</html>

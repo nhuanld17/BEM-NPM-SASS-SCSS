@@ -1,0 +1,228 @@
+@charset "UTF-8";
+/* Khai báo biến */
+.button--green, .button--red {
+  background: #c9c9c9;
+  color: #000;
+  border: 0;
+  padding: 10px 30px;
+  border-radius: 5px;
+}
+
+.button--red {
+  /*
+  Kế thừa thuộc tính từ selector .button, khi đó, .button--red 
+  sẽ có các thuộc tính giống như .button, xem thêm tại file style.css 
+   */
+  background-color: red;
+  color: #ffffff;
+}
+
+.button--green {
+  background: green;
+  color: white;
+}
+
+/* Nesting - Cách viết phân cấp */
+.nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  /* 
+  & được sử dụng để tham chiếu đến selector hiện tại (.nav) và  
+  &__item tương đương với .nav__item
+  */
+}
+.nav__item {
+  margin: 10px 15px;
+}
+.nav__link {
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+  /* Đặt hiệu ứng hover cho nav__link */
+}
+.nav__link--active {
+  color: green;
+}
+.nav__link--disabled {
+  color: #dddddd;
+  cursor: no-drop;
+}
+.nav__link:hover {
+  color: red;
+}
+
+/* 
+.pagination {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+
+    &__item{
+        margin: 10px 15px;
+    }
+
+    &__link{
+        color: $color-black;
+        text-decoration: none;
+        font-weight: 700;
+    }
+
+    &__item--disabled &__link{
+        color: #dddddd;
+        cursor: no-drop;
+    }
+
+    &__item--active &__link{
+        color: $color-red;
+    }
+}
+ */
+.pagination {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+.pagination__item {
+  margin: 10px 15px;
+  /* Tạo effect cho thẻ a nằm trong pagination__item--disabled */
+  /* Tạo effect cho thẻ a nằm trong pagination__item--active */
+}
+.pagination__item--disabled .pagination__link {
+  color: #dddddd;
+  cursor: no-drop;
+}
+.pagination__item--active .pagination__link {
+  color: red;
+}
+.pagination__link {
+  color: black;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* @mixin & @include */
+.nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  /* 
+  & được sử dụng để tham chiếu đến selector hiện tại (.nav) và  
+  &__item tương đương với .nav__item
+  */
+}
+.nav__item {
+  margin: 10px 15px;
+  padding: 10px 20px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  border: 1px solid #000000;
+}
+.nav__link {
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+  /* Đặt hiệu ứng hover cho nav__link */
+}
+.nav__link--active {
+  color: green;
+}
+.nav__link--disabled {
+  color: #dddddd;
+  cursor: no-drop;
+}
+.nav__link:hover {
+  color: red;
+}
+
+/* @if @else */
+.box {
+  position: relative;
+  background: yellow;
+  height: 500px;
+  width: 100%;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+.box__item {
+  background: orange;
+  width: 100px;
+  height: 50px;
+}
+.box__item--one {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+.box__item--two {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.box__item--three {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+}
+.box__item--four {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  background: red;
+}
+
+/* Vòng lặp @for */
+.opacity-0 {
+  opacity: 0;
+}
+
+.opacity-1 {
+  opacity: 0.1;
+}
+
+.opacity-2 {
+  opacity: 0.2;
+}
+
+.opacity-3 {
+  opacity: 0.3;
+}
+
+.opacity-4 {
+  opacity: 0.4;
+}
+
+.opacity-5 {
+  opacity: 0.5;
+}
+
+.opacity-6 {
+  opacity: 0.6;
+}
+
+.opacity-7 {
+  opacity: 0.7;
+}
+
+.opacity-8 {
+  opacity: 0.8;
+}
+
+.opacity-9 {
+  opacity: 0.9;
+}
+
+.opacity-10 {
+  opacity: 1;
+}
+
+/*# sourceMappingURL=style.css.map */

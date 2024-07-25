@@ -1,0 +1,235 @@
+/* Khai báo biến */
+$color-red : red;
+$color-green: green;
+$color-white: white;
+$color-black: black;
+
+%button {
+    background: #c9c9c9;
+    color: #000;
+    border: 0;
+    padding: 10px 30px;
+    border-radius: 5px;
+}
+
+.button--red {
+    /*
+    Kế thừa thuộc tính từ selector .button, khi đó, .button--red 
+    sẽ có các thuộc tính giống như .button, xem thêm tại file style.css 
+     */
+    @extend %button; // .button ở style.css đã bị loại bỏ
+    background-color: $color-red;
+    color: #ffffff;
+}
+
+.button--green {
+    @extend %button; // .button ở style.css đã bị loại bỏ
+    background: $color-green;
+    color: $color-white;
+}
+
+/* Nesting - Cách viết phân cấp */
+.nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+
+    /* 
+    & được sử dụng để tham chiếu đến selector hiện tại (.nav) và  
+    &__item tương đương với .nav__item
+    */
+    &__item {
+        margin: 10px 15px;
+    }
+
+    &__link {
+        text-decoration: none;
+        color: $color-black;
+        font-weight: 700;
+
+        &--active {
+            color: $color-green;
+        }
+
+        &--disabled {
+            color: #dddddd;
+            cursor: no-drop;
+        }
+
+        /* Đặt hiệu ứng hover cho nav__link */
+        &:hover {
+            color: red;
+        }
+    }
+}
+
+/* 
+.pagination {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+
+    &__item{
+        margin: 10px 15px;
+    }
+
+    &__link{
+        color: $color-black;
+        text-decoration: none;
+        font-weight: 700;
+    }
+
+    &__item--disabled &__link{
+        color: #dddddd;
+        cursor: no-drop;
+    }
+
+    &__item--active &__link{
+        color: $color-red;
+    }
+}
+ */
+
+.pagination {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+
+    &__item {
+        margin: 10px 15px;
+
+        /* Tạo effect cho thẻ a nằm trong pagination__item--disabled */
+        &--disabled .pagination__link {
+            color: #dddddd;
+            cursor: no-drop;
+        }
+
+        /* Tạo effect cho thẻ a nằm trong pagination__item--active */
+        &--active .pagination__link {
+            color: $color-red;
+        }
+    }
+
+    &__link {
+        color: $color-black;
+        text-decoration: none;
+        font-weight: 700;
+    }
+}
+
+/* @mixin & @include */
+
+@mixin displayFlex(){
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+@mixin borderRadius($value){
+    -webkit-border-radius: $value;
+    -moz-border-radius: $value; 
+    border-radius: $value; 
+}
+
+.nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    @include displayFlex;
+
+    /* 
+    & được sử dụng để tham chiếu đến selector hiện tại (.nav) và  
+    &__item tương đương với .nav__item
+    */
+    &__item {
+        margin: 10px 15px;
+        padding: 10px 20px;
+        @include borderRadius(10px);
+        border: 1px solid #000000;
+    }
+
+    &__link {
+        text-decoration: none;
+        color: $color-black;
+        font-weight: 700;
+
+        &--active {
+            color: $color-green;
+        }
+
+        &--disabled {
+            color: #dddddd;
+            cursor: no-drop;
+        }
+
+        /* Đặt hiệu ứng hover cho nav__link */
+        &:hover {
+            color: red;
+        }
+    }
+}
+
+/* @if @else */
+
+@mixin position-absolute($position, $x, $y) {
+    position: absolute;
+    @if($position == "top-left"){
+        top: $x;
+        left: $y;
+    }
+    @else if($position == "top-right"){
+        top: $x;
+        right: $y;     
+    }
+    @else if($position == "bottom-left"){
+        bottom: $x;
+        left: $y;     
+    }
+    @else if($position == "bottom-right"){
+        bottom: $x;
+        right: $y;
+    }
+}
+
+.box{
+    position: relative;
+    background: yellow;
+    height: 500px;
+    width: 100%;
+    @include borderRadius(10px);
+
+    &__item{
+        background: orange;
+        width: 100px;
+        height: 50px;
+
+        &--one {
+            @include position-absolute("top-left", 10px, 10px);
+        }
+
+        &--two {
+            @include position-absolute("top-right", 20px, 20px);
+        }
+
+        &--three {
+            @include position-absolute("bottom-left", 30px, 30px);
+        }
+
+        &--four {
+            @include position-absolute("bottom-right", 40px, 40px);
+            background: red;
+        }
+    }
+}
+
+/* Vòng lặp @for */
+
+@for $i from 0 through 10{
+    .opacity-#{$i} {
+        opacity: 0.1*$i;
+    }
+}
