@@ -161,6 +161,44 @@
 		}  
 	-->
 
+	<!--
+	- Vòng lặp @while (condition){
+		 
+	}  
+
+	-->
+
+	<!--
+	- Vòng lặp @each
+	- Lặp qua 1 list (Tương tự trong javascript là lặp qua một mảng) 
+	- Cú pháp:
+		$list : item1, item2, item3,..;
+		@each $item in $list {
+			// Code
+		}
+	 -->
+
+
+	<!--
+	- @function :
+	- Hàm trong SCSS luôn trả về 1 giá trị
+	- Trong @function phải có return
+	- Cú pháp khai báo:
+		@function function_name($var1, $var2, ...) {
+			@return value;
+		} 
+	- Gọi hàm: 
+		function_name($val1,$val2,...);
+	-->
+
+	<!--
+	- @import - kết hợp các file SCSS
+	- Cú pháp đặt tên file: _fileName.scss
+	- Cú pháp import file: @import "fileName";
+	(Đặt tên file sẽ có dạng gạch dưới ở trước file	_name.scss. Khi biên dịch thì file
+	có dấu gạch ngang ở dưới sẽ không được biên dịch).   
+	-->
+
 </body>
 
 </html>

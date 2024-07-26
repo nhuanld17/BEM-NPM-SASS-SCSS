@@ -225,4 +225,42 @@
   opacity: 1;
 }
 
+/* Vòng lặp while */
+.mb-0 {
+  margin-bottom: 0px;
+}
+
+.mb-5 {
+  margin-bottom: 5px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+/* Vòng lặp @each */
+.btn {
+  background: #ddd;
+  color: #000;
+}
+
+.btn--blue {
+  background: "#4a4afa";
+}
+
+.btn--red {
+  background: "#e15b5b";
+}
+
+.btn--orange {
+  background: "#f0af38";
+}
+
+/* Hàm trong SCSS @function */
+.box-testfunction {
+  width: 30px;
+}
+
+/* @import - kết hợp các file SCSS */
+
 /*# sourceMappingURL=style.css.map */

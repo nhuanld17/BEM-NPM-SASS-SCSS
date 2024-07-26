@@ -233,3 +233,41 @@ $color-black: black;
         opacity: 0.1*$i;
     }
 }
+
+/* Vòng lặp while */
+$i : 0;
+$length : 10;
+
+@while($i <= $length){
+    .mb-#{$i} {
+        margin-bottom: $i + px;
+    }
+    $i : $i + 5;
+}
+
+/* Vòng lặp @each */
+.btn {
+    background: #ddd;
+    color: #000;
+}
+
+$colors : ("blue", "#4a4afa"), ("red", "#e15b5b"), ("orange", "#f0af38");
+@each $color, $value in $colors {
+    .btn--#{$color} {
+        background: $value;
+    }
+}
+
+/* Hàm trong SCSS @function */
+
+@function sum($a, $b) {
+    $c : $a + $b;
+    @return $c;
+}
+
+.box-testfunction {
+    width: sum(10px, 20px);
+}
+
+/* @import - kết hợp các file SCSS */
+@import "mixin";
